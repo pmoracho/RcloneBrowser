@@ -80,6 +80,7 @@ int main(int argc, char *argv[]) {
   app.setOrganizationName("rclone-browser");
   app.setWindowIcon(QIcon(":/icons/icon.png"));
 
+
 // initialize SSL libraries
 // see: https://github.com/linuxdeploy/linuxdeploy-plugin-qt/issues/57
 #if defined(Q_OS_LINUX)
@@ -276,7 +277,7 @@ int main(int argc, char *argv[]) {
   QFont defaultFont = QApplication::font();
   defaultFont.setPointSize(defaultFont.pointSize() + fontsize);
   qApp->setFont(defaultFont);
-
+  qApp->setStyleSheet("QToolTip { color: #000000; background-color: #F4F5C0; border: 0px; }");
   // enforce one instance of Rclone Browser per user
   QString tmpDir;
   QString applicationNameBase;
