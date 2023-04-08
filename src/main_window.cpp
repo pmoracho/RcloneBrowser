@@ -190,6 +190,10 @@ MainWindow::MainWindow() {
       QIcon(":media/images/qbutton_icons/refresh" + img_add + ".png"));
   ui.actionOpen->setIcon(
       QIcon(":media/images/qbutton_icons/open_remote" + img_add + ".png"));
+  ui.actionMount->setIcon(
+        QIcon(":media/images/qbutton_icons/mount" + img_add + ".png"));
+  ui.actionMountAll->setIcon(
+        QIcon(":media/images/qbutton_icons/mount" + img_add + ".png"));
   ui.actionConfig->setIcon(
       QIcon(":media/images/qbutton_icons/rclone_config" + img_add + ".png"));
   // Preferences button action is triggered via slot defined in ui file
@@ -275,6 +279,8 @@ MainWindow::MainWindow() {
   ui.buttonSortTask->setDefaultAction(ui.actionSortTask);
   ui.refresh->setDefaultAction(ui.actionRefresh);
   ui.open->setDefaultAction(ui.actionOpen);
+  ui.mount->setDefaultAction(ui.actionMount);
+  ui.mount_all->setDefaultAction(ui.actionMountAll);
   ui.config->setDefaultAction(ui.actionConfig);
   //  ui.buttonPrefs->setDefaultAction(ui.preferences);
   ui.buttonStopAllJobs->setDefaultAction(ui.actionStopAllTransfers);
@@ -298,6 +304,8 @@ MainWindow::MainWindow() {
   // open remote should be not active when there is
   // no foucs on any e.g. after start
   ui.open->setEnabled(false);
+  ui.mount->setEnabled(false);
+  ui.mount_all->setEnabled(true);
 
   // jobs buttons inactive after start
   ui.buttonStopAllJobs->setEnabled(false);
@@ -337,6 +345,8 @@ MainWindow::MainWindow() {
     ui.buttonPrefs->setIconSize(QSize(icon_w, icon_h));
     ui.refresh->setIconSize(QSize(icon_w, icon_h));
     ui.open->setIconSize(QSize(icon_w, icon_h));
+    ui.mount->setIconSize(QSize(icon_w, icon_h));
+    ui.mount_all->setIconSize(QSize(icon_w, icon_h));
     ui.config->setIconSize(QSize(icon_w, icon_h));
     ui.buttonStopAllJobs->setIconSize(QSize(icon_w, icon_h));
     ui.buttonCleanNotRunning->setIconSize(QSize(icon_w, icon_h));
@@ -356,6 +366,8 @@ MainWindow::MainWindow() {
     ui.buttonPrefs->setMinimumWidth(button_width);
     ui.refresh->setMinimumWidth(button_width);
     ui.open->setMinimumWidth(button_width);
+    ui.mount->setMinimumWidth(button_width);
+    ui.mount_all->setMinimumWidth(button_width);
     ui.config->setMinimumWidth(button_width);
     ui.buttonStopAllJobs->setMinimumWidth(button_width);
     ui.buttonCleanNotRunning->setMinimumWidth(button_width);
@@ -391,6 +403,8 @@ MainWindow::MainWindow() {
       ui.buttonPrefs->setToolButtonStyle(Qt::ToolButtonTextOnly);
       ui.refresh->setToolButtonStyle(Qt::ToolButtonTextOnly);
       ui.open->setToolButtonStyle(Qt::ToolButtonTextOnly);
+      ui.mount->setToolButtonStyle(Qt::ToolButtonTextOnly);
+      ui.mount_all->setToolButtonStyle(Qt::ToolButtonTextOnly);
       ui.config->setToolButtonStyle(Qt::ToolButtonTextOnly);
       ui.buttonStopAllJobs->setToolButtonStyle(Qt::ToolButtonTextOnly);
       ui.buttonCleanNotRunning->setToolButtonStyle(Qt::ToolButtonTextOnly);
@@ -409,6 +423,8 @@ MainWindow::MainWindow() {
       ui.buttonPrefs->setMinimumWidth(button_width);
       ui.refresh->setMinimumWidth(button_width);
       ui.open->setMinimumWidth(button_width);
+      ui.mount->setMinimumWidth(button_width);
+      ui.mount_all->setMinimumWidth(button_width);
       ui.config->setMinimumWidth(button_width);
       ui.buttonStopAllJobs->setMinimumWidth(button_width);
       ui.buttonCleanNotRunning->setMinimumWidth(button_width);
@@ -451,6 +467,10 @@ MainWindow::MainWindow() {
       ui.refresh->setIconSize(QSize(icon_w, icon_h));
       ui.open->setToolButtonStyle(Qt::ToolButtonIconOnly);
       ui.open->setIconSize(QSize(icon_w, icon_h));
+      ui.mount->setToolButtonStyle(Qt::ToolButtonIconOnly);
+      ui.mount->setIconSize(QSize(icon_w, icon_h));
+      ui.mount_all->setToolButtonStyle(Qt::ToolButtonIconOnly);
+      ui.mount_all->setIconSize(QSize(icon_w, icon_h));
       ui.config->setToolButtonStyle(Qt::ToolButtonIconOnly);
       ui.config->setIconSize(QSize(icon_w, icon_h));
       ui.buttonStopAllJobs->setToolButtonStyle(Qt::ToolButtonIconOnly);
@@ -501,6 +521,8 @@ MainWindow::MainWindow() {
   ui.actionRefresh->setStatusTip("Refresh remotes view");
   ui.actionConfig->setStatusTip("rclone config");
   ui.actionOpen->setStatusTip("Open remote");
+  ui.actionMount->setStatusTip("Mount selected remote");
+  ui.actionMountAll->setStatusTip("Mount all remotes");
   ui.preferences->setStatusTip("Rclone Browser preferences (ALT-p)");
 
   ui.actionStopAllTransfers->setStatusTip("Stop all running transfer jobs");
@@ -672,32 +694,48 @@ MainWindow::MainWindow() {
   QObject::connect(ui.remotes, &QListWidget::currentItemChanged, this, [=]() {
     if (ui.remotes->selectedItems().empty()) {
       ui.open->setEnabled(false);
+      ui.mount->setEnabled(false);
+      ui.mount_all->setEnabled(true);
     } else {
       ui.open->setEnabled(true);
+      ui.mount->setEnabled(true);
+      ui.mount_all->setEnabled(false);
     }
   });
 
   QObject::connect(ui.remotes, &QListWidget::itemSelectionChanged, this, [=]() {
     if (ui.remotes->selectedItems().empty()) {
       ui.open->setEnabled(false);
+      ui.mount->setEnabled(false);
+      ui.mount_all->setEnabled(true);
     } else {
       ui.open->setEnabled(true);
+      ui.mount->setEnabled(true);
+      ui.mount_all->setEnabled(false);
     }
   });
 
   QObject::connect(ui.remotes, &QListWidget::itemChanged, this, [=]() {
     if (ui.remotes->selectedItems().empty()) {
       ui.open->setEnabled(false);
+      ui.mount->setEnabled(false);
+      ui.mount_all->setEnabled(true);
     } else {
       ui.open->setEnabled(true);
+      ui.mount->setEnabled(true);
+      ui.mount_all->setEnabled(false);
     }
   });
 
   QObject::connect(ui.remotes, &QListWidget::itemClicked, this, [=]() {
     if (ui.remotes->selectedItems().empty()) {
       ui.open->setEnabled(false);
+      ui.mount->setEnabled(false);
+      ui.mount_all->setEnabled(true);
     } else {
       ui.open->setEnabled(true);
+      ui.mount->setEnabled(true);
+      ui.mount_all->setEnabled(false);
     }
   });
 
@@ -1940,6 +1978,29 @@ MainWindow::MainWindow() {
     saveQueueFile();
   });
 
+  QObject::connect(ui.mount, &QPushButton::clicked, this, [=]() {
+
+    auto item = ui.remotes->selectedItems().front();
+    QString type = item->data(Qt::UserRole).toString();
+    QString remote = item->text();
+
+    MainWindow::mountRemote(remote, "", type);
+
+  });
+
+  QObject::connect(ui.mount_all, &QPushButton::clicked, this, [=]() {
+
+    for(int i = 0; i < ui.remotes->count(); ++i)
+    {
+        auto item = ui.remotes->item(i);
+        QString type = item->data(Qt::UserRole).toString();
+        QString remote = item->text();
+
+        MainWindow::mountRemote(remote, "", type);
+    }
+  });
+
+
   QObject::connect(ui.actionDownQueue, &QAction::triggered, this, [=]() {
     auto item = ui.queueListWidget->takeItem(ui.queueListWidget->currentRow());
     ui.queueListWidget->insertItem(ui.queueListWidget->currentRow() + 1, item);
@@ -3105,6 +3166,8 @@ void MainWindow::rcloneListRemotes() {
         }
         p->deleteLater();
         ui.open->setEnabled(false);
+        ui.mount->setEnabled(false);
+        ui.mount_all->setEnabled(true);
       });
 
   QObject::connect(
@@ -5106,6 +5169,66 @@ void MainWindow::addStream(const QString &remote, const QString &stream,
   ui.buttonCleanNotRunning->setEnabled(mJobCount != (ui.jobs->count() - 2) / 2);
 
   sortJobs();
+}
+
+
+void MainWindow::mountRemote(const QString &remote, const QString &path, const QString &remoteType) {
+
+    auto settings = GetSettings();
+
+    QString rootMountPath = settings->value("Settings/defaultMountDir").toString();
+    QString folder;
+
+    if (!rootMountPath.isEmpty()) {
+
+        folder = QDir(rootMountPath).filePath(remote);
+
+        QDir dir(folder);
+        if (!dir.exists())
+            dir.mkpath(".");
+
+        const QFileInfo outputDir(folder);
+
+        if (!(outputDir.exists()) || (!outputDir.isDir()) || (!outputDir.isWritable())) {
+            QString msg = QString("%1 output directory does not exist, is not a directory, or is not writeable").arg(folder);
+            QMessageBox msgBox;
+            msgBox.setText(msg);
+            msgBox.exec();
+        }
+
+
+    } else {
+
+    #if defined(Q_OS_WIN32)
+        folder =
+            QInputDialog::getText(this, "Mount",
+                                QString("(Make sure you have WinFsp-FUSE "
+                                        "installed)\n\nDrive to mount %1 to")
+                                    .arg(remote),
+                                QLineEdit::Normal, "Z:");
+    #else
+        folder = QFileDialog::getExistingDirectory(this, QString("Mount %1").arg(remote));
+    #endif
+    }
+
+    if (!folder.isEmpty()) {
+        QStringList args;
+
+        args << "mount";
+        args << remote + ":";
+        args << folder;
+        args << "--volname";
+        args << remote;
+        args << "--vfs-cache-mode";
+        args << "minimal";
+
+        emit addNewMount(remote + ":" + path, folder,
+                        remoteType,
+                        args,
+                        "",
+                        QUuid::createUuid().toString(),
+                        "");
+    }
 }
 
 void MainWindow::slotCloseTab(int index) {

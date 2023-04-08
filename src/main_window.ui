@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>955</width>
+    <width>964</width>
     <height>555</height>
    </rect>
   </property>
@@ -79,6 +79,26 @@
            </widget>
           </item>
           <item>
+           <widget class="QToolButton" name="mount">
+            <property name="text">
+             <string>Mount</string>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextUnderIcon</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="mount_all">
+            <property name="text">
+             <string>Mount all</string>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextUnderIcon</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
            <spacer name="horizontalSpacer">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -129,8 +149,8 @@
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>20</width>
-            <height>5</height>
+            <width>17</width>
+            <height>13</height>
            </size>
           </property>
          </spacer>
@@ -282,8 +302,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>907</width>
-             <height>389</height>
+             <width>940</width>
+             <height>412</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -860,8 +880,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>907</width>
-             <height>389</height>
+             <width>940</width>
+             <height>412</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_7">
@@ -916,8 +936,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>955</width>
-     <height>22</height>
+     <width>964</width>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1170,6 +1190,22 @@
    </property>
    <property name="toolTip">
     <string>Sort by status</string>
+   </property>
+  </action>
+  <action name="actionMount">
+   <property name="text">
+    <string>Mount</string>
+   </property>
+   <property name="toolTip">
+    <string>Mount selected remote</string>
+   </property>
+  </action>
+  <action name="actionMountAll">
+   <property name="text">
+    <string>Mount All</string>
+   </property>
+   <property name="toolTip">
+    <string>Mount all remotes</string>
    </property>
   </action>
  </widget>

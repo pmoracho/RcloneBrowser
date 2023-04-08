@@ -47,6 +47,7 @@ private slots:
   bool saveSchedulerFile(void);
 
   void autoStartMounts(void);
+  void mountRemote(const QString &remote, const QString &path, const QString &remoteType);
 
   // quit RB but only when all processes finished
   void quitApp(void);

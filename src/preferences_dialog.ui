@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>620</width>
-    <height>758</height>
+    <height>720</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -38,6 +38,12 @@
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
         <widget class="QGroupBox" name="groupBox_2">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>350</height>
+          </size>
+         </property>
          <property name="title">
           <string>Settings</string>
          </property>
@@ -48,109 +54,13 @@
           <bool>false</bool>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
-          <property name="bottomMargin">
-           <number>12</number>
-          </property>
-          <property name="horizontalSpacing">
-           <number>6</number>
-          </property>
-          <item row="12" column="0">
-           <widget class="QLabel" name="label_10">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_1">
             <property name="text">
-             <string>Default download options:</string>
+             <string>rclone location:</string>
             </property>
             <property name="buddy">
-             <cstring>defaultDownloadOptions</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label">
-            <property name="text">
-             <string>rclone.conf location:</string>
-            </property>
-            <property name="buddy">
-             <cstring>rcloneConf</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QLineEdit" name="stream">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;location of audio/video player used for streaming, $file_name variable can be used to substitute streamed filename e.g.:&lt;/p&gt;&lt;p&gt;&amp;quot;/usr/local/bin/vlc.app&amp;quot; - --meta-title &amp;quot;$file_name&amp;quot;&lt;br/&gt;&amp;quot;C:\Program Files\VideoLAN\VLC\mpv.exe&amp;quot; - --title=&amp;quot;$file_name&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="2">
-           <widget class="QToolButton" name="streamBrowse">
-            <property name="text">
-             <string>...</string>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="2">
-           <widget class="QToolButton" name="defaultDownloadDirBrowse">
-            <property name="text">
-             <string>...</string>
-            </property>
-           </widget>
-          </item>
-          <item row="11" column="1">
-           <widget class="QLineEdit" name="defaultUploadDir">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;default upload folder used for transfers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-           </widget>
-          </item>
-          <item row="12" column="1">
-           <widget class="QLineEdit" name="defaultDownloadOptions">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;extra rclone options added to download transfers e.g.:&lt;/p&gt;&lt;p&gt;--include *.jpg&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QLabel" name="label_2">
-            <property name="text">
-             <string>Stream command:</string>
-            </property>
-            <property name="buddy">
-             <cstring>stream</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="0">
-           <widget class="QLabel" name="label_d">
-            <property name="text">
-             <string>Default download folder:</string>
-            </property>
-            <property name="buddy">
-             <cstring>defaultDownloadDir</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="2">
-           <widget class="QToolButton" name="rcloneConfBrowse">
-            <property name="text">
-             <string>...</string>
+             <cstring>rclone</cstring>
             </property>
            </widget>
           </item>
@@ -167,7 +77,24 @@
             </property>
            </widget>
           </item>
-          <item row="4" column="1">
+          <item row="0" column="2">
+           <widget class="QToolButton" name="rcloneBrowse">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>rclone.conf location:</string>
+            </property>
+            <property name="buddy">
+             <cstring>rcloneConf</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
            <widget class="QLineEdit" name="rcloneConf">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
@@ -180,8 +107,25 @@
             </property>
            </widget>
           </item>
-          <item row="9" column="1">
-           <widget class="QLineEdit" name="defaultDownloadDir">
+          <item row="1" column="2">
+           <widget class="QToolButton" name="rcloneConfBrowse">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>Stream command:</string>
+            </property>
+            <property name="buddy">
+             <cstring>stream</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1">
+           <widget class="QLineEdit" name="stream">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
               <horstretch>0</horstretch>
@@ -189,37 +133,18 @@
              </sizepolicy>
             </property>
             <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;default download folder used for transfers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;location of audio/video player used for streaming, $file_name variable can be used to substitute streamed filename e.g.:&lt;/p&gt;&lt;p&gt;&amp;quot;/usr/local/bin/vlc.app&amp;quot; - --meta-title &amp;quot;$file_name&amp;quot;&lt;br/&gt;&amp;quot;C:\Program Files\VideoLAN\VLC\mpv.exe&amp;quot; - --title=&amp;quot;$file_name&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
            </widget>
           </item>
-          <item row="14" column="1">
-           <widget class="QLineEdit" name="defaultRcloneOptions">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;extra rclone options used for all but mount operations e.g:&lt;/p&gt;&lt;p&gt;--fast-list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <item row="2" column="2">
+           <widget class="QToolButton" name="streamBrowse">
+            <property name="text">
+             <string>...</string>
             </property>
            </widget>
           </item>
-          <item row="13" column="1">
-           <widget class="QLineEdit" name="defaultUploadOptions">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;extra rclone options added to upload transfers e.g:&lt;/p&gt;&lt;p&gt;--exclude .DS_Store&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="0">
+          <item row="3" column="0">
            <widget class="QLabel" name="mountLabel">
             <property name="text">
              <string>Default mount options:</string>
@@ -229,41 +154,7 @@
             </property>
            </widget>
           </item>
-          <item row="11" column="2">
-           <widget class="QToolButton" name="defaultUploadDirBrowse">
-            <property name="text">
-             <string>...</string>
-            </property>
-           </widget>
-          </item>
-          <item row="14" column="0">
-           <widget class="QLabel" name="label_12">
-            <property name="text">
-             <string>Default rclone options:</string>
-            </property>
-            <property name="buddy">
-             <cstring>defaultRcloneOptions</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="13" column="0">
-           <widget class="QLabel" name="label_11">
-            <property name="text">
-             <string>Default upload options:</string>
-            </property>
-            <property name="buddy">
-             <cstring>defaultUploadOptions</cstring>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2">
-           <widget class="QToolButton" name="rcloneBrowse">
-            <property name="text">
-             <string>...</string>
-            </property>
-           </widget>
-          </item>
-          <item row="7" column="1">
+          <item row="3" column="1">
            <widget class="QLineEdit" name="mount">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
@@ -276,7 +167,37 @@
             </property>
            </widget>
           </item>
-          <item row="11" column="0">
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_d">
+            <property name="text">
+             <string>Default download folder:</string>
+            </property>
+            <property name="buddy">
+             <cstring>defaultDownloadDir</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1">
+           <widget class="QLineEdit" name="defaultDownloadDir">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;default download folder used for transfers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QToolButton" name="defaultDownloadDirBrowse">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
            <widget class="QLabel" name="label_u">
             <property name="text">
              <string>Default upload folder:</string>
@@ -286,13 +207,116 @@
             </property>
            </widget>
           </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_1">
+          <item row="5" column="1">
+           <widget class="QLineEdit" name="defaultUploadDir">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;default upload folder used for transfers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="2">
+           <widget class="QToolButton" name="defaultUploadDirBrowse">
             <property name="text">
-             <string>rclone location:</string>
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_10">
+            <property name="text">
+             <string>Default download options:</string>
             </property>
             <property name="buddy">
-             <cstring>rclone</cstring>
+             <cstring>defaultDownloadOptions</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1">
+           <widget class="QLineEdit" name="defaultDownloadOptions">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;extra rclone options added to download transfers e.g.:&lt;/p&gt;&lt;p&gt;--include *.jpg&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <widget class="QLabel" name="label_11">
+            <property name="text">
+             <string>Default upload options:</string>
+            </property>
+            <property name="buddy">
+             <cstring>defaultUploadOptions</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1">
+           <widget class="QLineEdit" name="defaultUploadOptions">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;extra rclone options added to upload transfers e.g:&lt;/p&gt;&lt;p&gt;--exclude .DS_Store&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_12">
+            <property name="text">
+             <string>Default rclone options:</string>
+            </property>
+            <property name="buddy">
+             <cstring>defaultRcloneOptions</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1">
+           <widget class="QLineEdit" name="defaultRcloneOptions">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;extra rclone options used for all but mount operations e.g:&lt;/p&gt;&lt;p&gt;--fast-list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0">
+           <widget class="QLabel" name="label_d_2">
+            <property name="text">
+             <string>Default mount folder:</string>
+            </property>
+            <property name="buddy">
+             <cstring>defaultDownloadDir</cstring>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="1">
+           <widget class="QLineEdit" name="defaultMountDir">
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;default download folder used for transfers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="2">
+           <widget class="QToolButton" name="defaultMountDirBrowse">
+            <property name="text">
+             <string>...</string>
             </property>
            </widget>
           </item>
@@ -320,6 +344,9 @@
          <zorder>rcloneBrowse</zorder>
          <zorder>rcloneConfBrowse</zorder>
          <zorder>defaultDownloadDir</zorder>
+         <zorder>defaultMountDirBrowse</zorder>
+         <zorder>label_d_2</zorder>
+         <zorder>defaultMountDir</zorder>
         </widget>
        </item>
        <item>
@@ -328,7 +355,7 @@
           <enum>Qt::Vertical</enum>
          </property>
          <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
+          <enum>QSizePolicy::Expanding</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
@@ -386,6 +413,9 @@
         <spacer name="verticalSpacer_general">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
