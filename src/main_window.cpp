@@ -1984,7 +1984,7 @@ MainWindow::MainWindow() {
     QString type = item->data(Qt::UserRole).toString();
     QString remote = item->text();
 
-    MainWindow::mountRemote(remote, "", type);
+    MainWindow::mountDefaultRemote(remote, "", type);
 
   });
 
@@ -1996,7 +1996,7 @@ MainWindow::MainWindow() {
         QString type = item->data(Qt::UserRole).toString();
         QString remote = item->text();
 
-        MainWindow::mountRemote(remote, "", type);
+        MainWindow::mountDefaultRemote(remote, "", type);
     }
   });
 
@@ -5172,7 +5172,7 @@ void MainWindow::addStream(const QString &remote, const QString &stream,
 }
 
 
-void MainWindow::mountRemote(const QString &remote, const QString &path, const QString &remoteType) {
+void MainWindow::mountDefaultRemote(const QString &remote, const QString &path, const QString &remoteType) {
 
     auto settings = GetSettings();
 
